@@ -1,0 +1,16 @@
+.Action-sheet {
+  position: absolute;
+  z-index: 100;
+  width: 96%;
+  right: 2%;
+  padding: 10px;
+
+  background-color: #282c34;
+  color: #9eb2bf;
+
+  text-align: center;
+  user-select: none;
+
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
