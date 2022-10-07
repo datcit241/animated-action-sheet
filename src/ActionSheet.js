@@ -34,7 +34,8 @@ function ActionSheet({ snapPoints, children }) {
                     } else {
                         handlePosition.y.start(snapValues[i]);
 
-                        if (snapValues[i] === SCREEN_HEIGHT) setActive(false);
+                        if ((snapValues[i] | 0) === SCREEN_HEIGHT)
+                            setActive(false);
                     }
                     break;
                 }
