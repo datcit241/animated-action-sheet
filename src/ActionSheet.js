@@ -19,7 +19,7 @@ function ActionSheet({ snapPoints, children }) {
     });
     useEffect(() => {
         setActive(true);
-    }, []);
+    }, [snapPoints]);
 
     const handleGesture = useDrag(({ dragging, xy: [, lastPos] }) => {
         if (dragging) {
