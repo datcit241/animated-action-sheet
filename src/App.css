@@ -1,9 +1,11 @@
 .Action-sheet {
   position: absolute;
   z-index: 100;
+
   width: 96%;
   right: 2%;
   padding: 10px;
+  overflow: auto;
 
   background-color: #282c34;
   color: #9eb2bf;
