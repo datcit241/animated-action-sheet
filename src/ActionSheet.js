@@ -4,7 +4,11 @@ import { animated, useSpring, config } from "@react-spring/web";
 import { defaultSnapPoints } from "./defaultSnapPoints";
 
 function ActionSheet({ snapPoints, children }) {
-    const SCREEN_HEIGHT = window.innerHeight;
+    const TOOL_BAR_HEIGHT = 44;
+    const TAB_BAR_HEIGHT = 50;
+    const PADDING = 10;
+    const SCREEN_HEIGHT =
+        window.innerHeight - TOOL_BAR_HEIGHT - TAB_BAR_HEIGHT - PADDING;
 
     if (!snapPoints) snapPoints = defaultSnapPoints;
     const snapValues = snapPoints.values
@@ -33,9 +37,7 @@ function ActionSheet({ snapPoints, children }) {
                         handlePosition.y.start(snapValues[i - 1]);
                     } else {
                         handlePosition.y.start(snapValues[i]);
-
-                        if ((snapValues[i] | 0) === SCREEN_HEIGHT)
-                            setActive(false);
+                        if (i === snapValues.length - 1) setActive(false);
                     }
                     break;
                 }
@@ -53,7 +55,7 @@ function ActionSheet({ snapPoints, children }) {
                         y: handlePosition.y,
                         height: handlePosition.y.to(
                             [0, SCREEN_HEIGHT],
-                            ["100vh", "0"]
+                            [SCREEN_HEIGHT, "0"]
                         ),
                         touchAction: "none",
                     }}
